@@ -1,0 +1,14 @@
+language: ruby
+sudo: false
+dist:  xenial
+rvm:
+  - 2.4.2
+before_install:
+  - gem install rspec
+  - gem install selenium-webdriver
+  - gem install rubocop
+script:
+  - rubocop
+#  - ruby -v chrome.rb
+#  - ruby -v firefox.rb
+#  - ls -al
