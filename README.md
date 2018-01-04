@@ -1,18 +1,14 @@
 selenium-invadelabs
 ===================
-Selenium dockerized with Stand Alone Chrome and Firefox on separate ports.
+Selenium, Docker, and Tavis CI testing for Invade Labs.
 
-## Start Chrome Stand Alone Selenium
+## Spin up if testing on local
 ```
 docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.8.1-chlorine
-```
-
-## Start Firefox Stand Alone Selenium
-```
 docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.8.1-chlorine
 ```
 
-## Use Firefox 54 or earlier
+## Install Firefox 54 or earlier for Selenium IDE
 Selenium IDE isn't supported on Firefox >= 55
 https://ftp.mozilla.org/pub/firefox/releases/54.0/linux-x86_64/en-US/firefox-54.0.tar.bz2
 

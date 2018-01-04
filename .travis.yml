@@ -1,14 +1,24 @@
+sudo: required
+
 language: ruby
-sudo: false
-dist:  xenial
-rvm:
-  - 2.4.2
+
+services:
+  - docker
+
 before_install:
-  - gem install rspec
-  - gem install selenium-webdriver
-  - gem install rubocop
+- docker pull selenium/standalone-chrome:3.8.1-chlorine
+- docker pull selenium/standalone-firefox:3.8.1-chlorine
+- docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.8.1-chlorine
+- docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.8.1-chlorine
+- docker ps -a
+
 script:
-  - rubocop
-#  - ruby -v chrome.rb
-#  - ruby -v firefox.rb
-#  - ls -al
+- gem install rspec
+- gem install selenium-webdriver
+- gem install rubocop
+# - bundle exec rake test # make the above a rake task!
+- rubocop
+- ls -al
+- ruby -v chrome.rb
+- ruby -v firefox.rb
+- ls -al
