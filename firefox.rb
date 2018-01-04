@@ -1,7 +1,6 @@
-# filename: firefox_test.rb
-
 require 'selenium-webdriver'
 require 'rspec/expectations'
+
 include RSpec::Matchers
 
 def setup
@@ -26,14 +25,14 @@ run do
   @driver.get('http://invadelabs.com/')
   expect(@driver.title).to eql 'invadelabs.com'
 
-  @driver.find_element(:css, "i.icon-reorder").click
+  @driver.find_element(:css, 'i.icon-reorder').click
   # expect(@driver.find_element(:link, 'Menu').text).to eql 'Menu'
 
   # @driver.find_element(:link, "Contact Me").click
   # expect(@driver.find_element(:link, 'Find owners').text).to eql 'Find owners'
 
   t = Time.now
-  t_proc =  t.strftime "%Y.%m.%d.%H.%M.%S%z"
+  t_proc = t.strftime '%Y.%m.%d.%H.%M.%S%z'
 
   @driver.save_screenshot("firefox_invadelabs.com.#{t_proc}.png")
 end
