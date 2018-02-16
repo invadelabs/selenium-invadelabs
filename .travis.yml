@@ -10,12 +10,9 @@ before_install:
 - docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.8.1-chlorine
 - docker ps -a
 script:
-- gem install rubocop
-- gem install rspec
-- gem install selenium-webdriver
-- gem install sendgrid-ruby
-# - bundle exec rake test # make the above a rake task!
+- bundle install
 - rubocop
+# - bundle exec rake test # make the above a rake task!
 - ls -al
 - ruby -v chrome.rb
 - ruby -v firefox.rb
