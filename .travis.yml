@@ -13,6 +13,7 @@ script:
 - gem install rubocop
 - gem install rspec
 - gem install selenium-webdriver
+- gem install sendgrid-ruby
 # - bundle exec rake test # make the above a rake task!
 - rubocop
 - ls -al
