@@ -27,16 +27,16 @@ https://addons.mozilla.org/en-US/firefox/addon/selenium-ide/
 ## Use Selenium IDE in Firefox
 `Developer > Selenium IDE > Record`
 
-## Install selenium-webdriver and rspec gems
+## Install ruby-2.4.1 and gems
 ```
-rvm use latest
-gem install selenium-webdriver
-gem install rspec
+rvm use 2.4.1
+bundle install
 ```
 
 ## Test
-Generate a screenshot from our tests with output files `chrome_#{time}.png` and `firefox_#{time}.png`
+Generate a screenshot from our tests with output files `chrome_#{time}.png` and `firefox_#{time}.png` and email them.
 ```
+export SENDGRID_API_KEY="my awesome key"
 ruby ./chrome.rb
 ruby ./firefox.rb
 ```
