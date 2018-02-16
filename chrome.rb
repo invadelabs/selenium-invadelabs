@@ -33,6 +33,7 @@ def compressimage(filename)
                                gifsicle: false,
                                svgo: false)
   image_optim.optimize_image!(filename)
+  puts "Compressing #{filename}"
 end
 
 def sendmail(filename)
@@ -67,6 +68,7 @@ def sendmail(filename)
   puts response.status_code
   puts response.body
   puts response.headers
+  puts "Sending email with #{filename}"
 end
 
 def run

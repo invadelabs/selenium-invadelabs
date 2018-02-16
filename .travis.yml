@@ -15,8 +15,8 @@ before_install:
 script:
 - rubocop
 - ls -al
-- ruby -v chrome.rb
-- ruby -v firefox.rb
+- ruby chrome.rb
+- ruby firefox.rb
 - ls -al
 notifications:
   slack:
