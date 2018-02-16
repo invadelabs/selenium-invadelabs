@@ -4,16 +4,16 @@ language: ruby
 services:
 - docker
 before_install:
+- sudo apt-get install optipng
 - docker pull selenium/standalone-chrome:3.8.1-chlorine
 - docker pull selenium/standalone-firefox:3.8.1-chlorine
 - docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.8.1-chlorine
 - docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.8.1-chlorine
 - docker ps -a
-- gem install bundler
+- gem install bundler # https://github.com/travis-ci/travis-ci/issues/5239
 - bundle install
 script:
 - rubocop
-# - bundle exec rake test # make the above a rake task!
 - ls -al
 - ruby -v chrome.rb
 - ruby -v firefox.rb

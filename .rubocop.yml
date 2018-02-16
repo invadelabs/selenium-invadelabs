@@ -2,5 +2,9 @@ Style/MixinUsage:
   Enabled: False
 Metrics/LineLength:
   Max: 250
-Metrics/BlockLength:
+# Metrics/BlockLength:
+  # Max: 30
+Metrics/MethodLength:
+  Max: 30
+Metrics/AbcSize:
   Max: 30

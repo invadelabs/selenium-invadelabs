@@ -27,8 +27,9 @@ https://addons.mozilla.org/en-US/firefox/addon/selenium-ide/
 ## Use Selenium IDE in Firefox
 `Developer > Selenium IDE > Record`
 
-## Install ruby-2.4.1 and gems
+## Install optipng, ruby-2.4.1, and gems
 ```
+sudo apt-get install optipng
 rvm use 2.4.1
 bundle install
 ```
