@@ -7,6 +7,8 @@ cache:
   bundler: true
   directories:
   - docker
+addons:
+  srcclr: true
 before_install:
 - sudo apt-get install optipng
 - docker pull selenium/standalone-chrome:3.8.1-chlorine
