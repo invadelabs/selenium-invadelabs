@@ -1,4 +1,4 @@
-selenium-invadelabs [![Build Status](https://travis-ci.org/invadelabs/selenium-invadelabs.svg?branch=master)](https://travis-ci.org/invadelabs/selenium-invadelabs)
+selenium-invadelabs [![Build Status](https://travis-ci.org/invadelabs/selenium-invadelabs.svg?branch=master)](https://travis-ci.org/invadelabs/selenium-invadelabs) [![Coverage Status](https://coveralls.io/repos/github/invadelabs/selenium-invadelabs/badge.svg)](https://coveralls.io/github/invadelabs/selenium-invadelabs)
 ===================
 Selenium, Docker, and Tavis CI testing for Invade Labs.
 
