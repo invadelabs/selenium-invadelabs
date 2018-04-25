@@ -2,6 +2,8 @@ selenium-invadelabs [![Build Status](https://travis-ci.org/invadelabs/selenium-i
 ===================
 Selenium, Docker, and Tavis CI testing for Invade Labs.
 
+Triggered via travisci from commits to [invadelabs/invadelabs.com](https://github.com/invadelabs/invadelabs.com) and sends a screenshot from Selenium tests to Slack.
+
 ## Spin up if testing on local
 ```
 docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.8.1-chlorine
@@ -23,7 +25,6 @@ Check Never check for updates
 ## Install selenium-ide extension
 https://addons.mozilla.org/en-US/firefox/addon/selenium-ide/
 
-
 ## Use Selenium IDE in Firefox
 `Developer > Selenium IDE > Record`
 
@@ -34,10 +35,11 @@ rvm use 2.4.1
 bundle install
 ```
 
-## Test
+## Test Locally
 Generate a screenshot from our tests with output files `chrome_#{time}.png` and `firefox_#{time}.png` and email them.
 ```
 export SENDGRID_API_KEY="my awesome key"
+export SLACK_API_TOKEN="my awesome key"
 ruby ./chrome.rb
 ruby ./firefox.rb
 ```
