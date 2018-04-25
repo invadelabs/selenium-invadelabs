@@ -2,6 +2,7 @@ require 'selenium-webdriver'
 require 'rspec/expectations'
 require 'sendgrid-ruby'
 require 'image_optim'
+require 'slack-ruby-client'
 
 include SendGrid
 
@@ -71,6 +72,29 @@ def sendmail(filename)
   puts "Sending email with #{filename}"
 end
 
+# def slack(filename)
+def slack(filename)
+  Slack.configure do |config|
+    config.token = ENV['SLACK_API_TOKEN']
+    raise 'Missing ENV[SLACK_API_TOKEN]!' unless config.token
+  end
+
+  client = Slack::Web::Client.new
+
+  client.auth_test
+
+  # client.chat_postMessage(channel: '#general', text: 'Hello World', as_user: true)
+
+  client.files_upload(
+    channels: '#selenium-ci',
+    as_user: true,
+    file: Faraday::UploadIO.new(filename, 'image/png'),
+    title: filename,
+    filename: filename,
+    initial_comment: "Selenium: #{filename}"
+  )
+end
+
 def run
   setup
   yield
@@ -95,5 +119,7 @@ run do
 
   compressimage(screenshot_name)
 
-  sendmail(screenshot_name)
+  # sendmail(screenshot_name)
+
+  slack(screenshot_name)
 end
