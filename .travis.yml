@@ -21,8 +21,7 @@ before_install:
 script:
 - rubocop
 - ls -al
-- ruby chrome.rb
-- ruby firefox.rb
+- ruby selenium.rb
 - ls -al
 after_success:
 - ruby coveralls.rb
