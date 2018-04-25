@@ -40,6 +40,5 @@ Generate a screenshot from our tests with output files `chrome_#{time}.png` and 
 ```
 export SENDGRID_API_KEY="my awesome key"
 export SLACK_API_TOKEN="my awesome key"
-ruby ./chrome.rb
-ruby ./firefox.rb
+ruby ./selenium.rb
 ```
