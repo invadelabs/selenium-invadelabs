@@ -118,7 +118,13 @@ run do
   @driver.get('http://invadelabs.com/')
   expect(@driver.title).to eql 'invadelabs.com'
 
-  @driver.find_element(:css, 'i.icon-reorder').click
+  # capture entire page workaround https://gist.github.com/elcamino/5f562564ecd2fb86f559
+  width  = @driver.execute_script('return Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);')
+  height = @driver.execute_script('return Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);')
+  # @driver.manage.window.resize_to(width+100, height+100)
+  @driver.manage.window.resize_to(width, height)
+
+  # @driver.find_element(:css, 'i.icon-reorder').click
   # expect(@driver.find_element(:link, 'Menu').text).to eql 'Menu'
 
   # @driver.find_element(:link, "Contact Me").click
