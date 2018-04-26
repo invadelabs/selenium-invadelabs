@@ -114,7 +114,7 @@ def run
 end
 
 run do
-  puts "Starting #{@driver.browser} webdriver"
+  puts "Starting #{@driver.browser} #{@driver.capabilities.version} webdriver"
   @driver.get('http://invadelabs.com/')
   expect(@driver.title).to eql 'invadelabs.com'
 
@@ -133,7 +133,7 @@ run do
   t = Time.now
   t_proc = t.strftime '%Y.%m.%d.%H.%M.%S%z'
 
-  screenshot_name = "#{@driver.browser}_invadelabs.com.#{t_proc}.png"
+  screenshot_name = "#{@driver.browser}_#{@driver.capabilities.version}_invadelabs.com.#{t_proc}.png"
   @driver.save_screenshot(screenshot_name)
 
   compressimage(screenshot_name)

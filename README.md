@@ -6,8 +6,8 @@ Triggered via travisci from commits to [invadelabs/invadelabs.com](https://githu
 
 ## Spin up if testing on local
 ```
-docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.8.1-chlorine
-docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.8.1-chlorine
+docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.11.0-dysprosium
+docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.11.0-dysprosium
 ```
 
 ## Install Firefox 54 or earlier for Selenium IDE
