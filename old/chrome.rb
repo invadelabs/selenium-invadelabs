@@ -109,7 +109,7 @@ run do
   # expect(@driver.find_element(:link, 'Menu').text).to eql 'Menu'
 
   # @driver.find_element(:link, "Contact Me").click
-  # expect(@driver.find_element(:link, 'Find owners').text).to eql 'Find owners'
+  # expect(@driver.find_element(:link, 'Contact Me').text).to eql 'Contact Me'
 
   t = Time.now
   t_proc = t.strftime '%Y.%m.%d.%H.%M.%S%z'
