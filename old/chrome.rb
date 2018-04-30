@@ -1,3 +1,8 @@
+# Drew Holt <drew@invadelabs.com>
+# https://github.com/invadelabs/selenium-invadelabs
+# Spin up selenium chrome container, take a screenshot,
+# send as slack attachement and / or email
+
 require 'selenium-webdriver'
 require 'rspec/expectations'
 require 'sendgrid-ruby'
@@ -44,8 +49,8 @@ def sendmail(filename)
   mail.subject = "invadelabs.com #{filename}"
 
   personalization2 = Personalization.new
-  # personalization2.add_to(Email.new(email: 'drewderivative@gmail.com', name: 'Drew'))
-  personalization2.add_to(Email.new(email: 'drewderivative@gmail.com'))
+  # personalization2.add_to(Email.new(email: 'drew@invadelabs.com', name: 'Drew'))
+  personalization2.add_to(Email.new(email: 'drew@invadelabs.com'))
   # personalization2.subject = 'Hello World from the Personalized SendGrid Ruby Library'
   mail.add_personalization(personalization2)
 
