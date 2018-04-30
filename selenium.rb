@@ -1,16 +1,22 @@
-require 'selenium-webdriver'
-require 'rspec/expectations'
-require 'sendgrid-ruby'
+# Drew Holt <drew@invadelabs.com>
+# https://github.com/invadelabs/selenium-invadelabs
+# Spin up selenium chrome and firefox containers on :4444 and :4445
+# take a screenshot from each browser and send as a Slack attachemnt and / or email
+
 require 'image_optim'
+require 'rspec/expectations'
+require 'selenium-webdriver'
+require 'sendgrid-ruby'
 require 'slack-ruby-client'
 
+include RSpec::Matchers
 include SendGrid
 
-include RSpec::Matchers
-
+# using standalone containers instead of selenium grid to save time in travisci
 BROWSERS = { chrome: 'http://localhost:4444/wd/hub',
              firefox: 'http://localhost:4445/wd/hub' }.freeze
 
+# setup chrome and firefox selenium web drivers at URLs listed above
 def setup(browser_name, url)
   caps = Selenium::WebDriver::Remote::Capabilities.send(browser_name.to_sym)
 
@@ -21,6 +27,7 @@ def setup(browser_name, url)
   )
 end
 
+# close out the session
 def teardown
   @driver.quit
 end
@@ -52,8 +59,8 @@ def sendmail(filename)
   mail.subject = "invadelabs.com #{filename}"
 
   personalization2 = Personalization.new
-  # personalization2.add_to(Email.new(email: 'drewderivative@gmail.com', name: 'Drew'))
-  personalization2.add_to(Email.new(email: 'drewderivative@gmail.com'))
+  # personalization2.add_to(Email.new(email: 'drew@invadelabs.com', name: 'Drew'))
+  personalization2.add_to(Email.new(email: 'drew@invadelabs.com'))
   # personalization2.subject = 'Hello World from the Personalized SendGrid Ruby Library'
   mail.add_personalization(personalization2)
 
@@ -103,8 +110,9 @@ def slack(filename)
   )
   puts "Slacking #{filename}"
 end
-
 ############################################
+
+# method run for each browser at selenium standalone url
 def run
   BROWSERS.each_pair do |browser_name, url|
     setup(browser_name, url)
