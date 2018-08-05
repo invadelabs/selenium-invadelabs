@@ -6,8 +6,8 @@ Triggered via travisci from commits to [invadelabs/invadelabs.com](https://githu
 
 ## Spin up if testing on local
 ```
-docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.11.0-dysprosium
-docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.11.0-dysprosium
+docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.14.0-arsenic
+docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.14.0-arsenic
 ```
 
 ## Install Firefox 54 or earlier for Selenium IDE
@@ -36,7 +36,7 @@ bundle install
 ```
 
 ## Test Locally
-Generate a screenshot from our tests with output files `chrome_#{time}.png` and `firefox_#{time}.png` and email them.
+Generate a screenshot from our tests with output files `chrome_#{time}.png` and `firefox_#{time}.png` then slack / and or email them.
 ```
 export SENDGRID_API_KEY="my awesome key"
 export SLACK_API_TOKEN="my awesome key"
