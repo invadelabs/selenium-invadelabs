@@ -7,6 +7,9 @@ cache:
   bundler: true
   directories:
   - docker
+branches:
+  only:
+    - master
 before_install:
 - sudo apt-get install optipng
 - docker pull selenium/standalone-chrome:3.141.59
