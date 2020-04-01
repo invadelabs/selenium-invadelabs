@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Drew Holt <drew@invadelabs.com>
 # https://github.com/invadelabs/selenium-invadelabs
 # Spin up selenium chrome and firefox containers on :4444 and :4445

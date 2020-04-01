@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Drew Holt <drew@invadelabs.com>
 # https://github.com/invadelabs/selenium-invadelabs
 # Sn up selenium firefox container, take a screenshot
