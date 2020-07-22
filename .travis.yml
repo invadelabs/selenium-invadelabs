@@ -12,10 +12,8 @@ branches:
     - master
 before_install:
 - sudo apt-get install optipng
-- docker pull selenium/standalone-chrome:3.141.59
-- docker pull selenium/standalone-firefox:3.141.59
-- docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:3.141.59
-- docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:3.141.59
+- docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:latest # 3.141.59
+- docker run -d -p 4445:4444 -v /dev/shm:/dev/shm selenium/standalone-firefox:latest # 3.141.59
 - docker ps -a
 - gem install bundler # https://github.com/travis-ci/travis-ci/issues/5239
 - bundle install
