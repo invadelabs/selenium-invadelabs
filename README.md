@@ -1,8 +1,7 @@
 selenium-invadelabs [![Build Status](https://travis-ci.org/invadelabs/selenium-invadelabs.svg?branch=master)](https://travis-ci.org/invadelabs/selenium-invadelabs) [![Coverage Status](https://coveralls.io/repos/github/invadelabs/selenium-invadelabs/badge.svg)](https://coveralls.io/github/invadelabs/selenium-invadelabs)
 ===================
-Selenium, Docker, and Tavis CI testing for Invade Labs.
 
-Triggered via travisci from commits to [invadelabs/invadelabs.com](https://github.com/invadelabs/invadelabs.com) and sends a screenshot from Selenium tests to Slack.
+Triggered via travisci from commits to invadelabs.com repo and sends a screenshot from Selenium tests to Slack.
 
 ## Spin up if testing on local
 ```
@@ -28,10 +27,10 @@ https://addons.mozilla.org/en-US/firefox/addon/selenium-ide/
 ## Use Selenium IDE in Firefox
 `Developer > Selenium IDE > Record`
 
-## Install optipng, ruby-2.4.1, and gems
+## Install optipng, ruby-2.5.5, and gems
 ```
 sudo apt-get install optipng
-rvm use 2.4.1
+rbenv global 2.5.5
 bundle install
 ```
 
