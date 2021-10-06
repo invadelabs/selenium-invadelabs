@@ -9,7 +9,7 @@ cache:
   - docker
 branches:
   only:
-    - master
+    - main
 before_install:
 - sudo apt-get install optipng
 - docker run -d -p 4444:4444 -v /dev/shm:/dev/shm selenium/standalone-chrome:latest # 3.141.59
