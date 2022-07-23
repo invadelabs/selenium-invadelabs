@@ -22,9 +22,11 @@ jobs:
         options: --shm-size="2g"
     steps:
     - uses: actions/checkout@v2
+    - name: Install optipng
+      run: sudo apt-get install -y optipng
     - uses: actions/setup-ruby@v1
       with:
-        ruby-version: '2.5'
+        ruby-version: '2.7.6'
         bundler-cache: true
     - name: Selenium Run
       run: |

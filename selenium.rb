@@ -40,6 +40,7 @@ def compressimage(filename)
   image_optim = ImageOptim.new(skip_missing_workers: true,
                                verbose: false,
                                optipng: { level: 6 },
+                               oxipng: false,
                                pngcrush: false,
                                jpegtran: false,
                                pngout: false,
