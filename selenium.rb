@@ -24,8 +24,7 @@ def setup(browser_name, url)
 
   @driver = Selenium::WebDriver.for(
     :remote,
-    url: url.to_s,
-    desired_capabilities: caps
+    url: url.to_s
   )
 end
 
