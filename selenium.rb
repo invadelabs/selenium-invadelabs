@@ -25,7 +25,7 @@ def setup(browser_name, url)
   @driver = Selenium::WebDriver.for(
     :remote,
     url: url.to_s,
-    desired_capabilities: caps
+    capabilities: caps
   )
 end
 
@@ -40,6 +40,7 @@ def compressimage(filename)
   image_optim = ImageOptim.new(skip_missing_workers: true,
                                verbose: false,
                                optipng: { level: 6 },
+                               oxipng: false,
                                pngcrush: false,
                                jpegtran: false,
                                pngout: false,
